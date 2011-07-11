@@ -18,36 +18,38 @@
 
   <div id="main" role="main">
 
-	<!-- Section #1 -->
+	<!-- Section #1 / Intro -->
 	<section id="first" class="story" data-speed="8" data-type="background">    	
 		<div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>		
 		<article>
 
 			<img src="images/tutorial-title.png" alt="tutorial-title" width="711" height="242" />
-			<p>Words and pictures by Richard Shepherd / <a href="http://twitter.com/richardshepherd" target="_blank">@richardshepherd</a> / <a href="http://richardshepherd.com">richardshepherd.com</a></p>
+			<p>Words and pictures by Richard Shepherd / Twitter: <a href="http://twitter.com/richardshepherd" target="_blank">@richardshepherd</a> / Web: <a href="http://richardshepherd.com">richardshepherd.com</a></p>
+			<p>GitHub: <a href="https://github.com/richardshepherd/Parallax-Scrolling/">Fork it here!</a></p>
 	    </article>
 	</section>
 
-	<!-- Section #2 -->
+	<!-- Section #2 / Background Only -->
 	<section id="second" class="story" data-speed="4" data-type="background">
 		<article>
 			<h2>Background Only</h2>
-		    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		    	<p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.</p>	
-		    	<p><a href="#">And this is a link!</a></p>		
+		    	<p>In this section we are sliding the background at a different speed to the rest of the page.</p>
+		    	<p>As this text box is scrolling at the same speed as the page, and faster than the background, it creates this lovely parallax effect.</p>
+		    	<p>You can find all the HTML, CSS and the all important JavaScript files over at <a href="https://github.com/richardshepherd/Parallax-Scrolling">GitHub</a> - so why don't you drop by for some hardcore forking action?</p>
+		    	<p>Backgrounds for this article were taken from the May/June 2011 Smashing Magazine Desktop backgrounds. <a href="">Alien</a> from <a href="">######</a>, <a href="">Photos</a> from <a href="">#####</a>, <a href="">Park</a> from <a href="">######</a>.</p>	
+		    	<p>Head back to <a href="http://www.smashingmagazine.com">Smashing Magazine</a>, or hop on over to <a href="http://richardshepherd.com">RichardShepherd.com</a>.</p>		
 		</article>
 	</section>
 	
 	<!-- Section #3 / Photos -->
 	<section id="third" class="story" data-speed="6" data-type="background" data-offsetY="250">    	
-		<div class="sprite3" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2"></div>
+		<div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2"></div>
     	<article>
-    		<h2>Background Only</h2>
+    		<h2>Scrolling Sprites</h2>
 	    	<div class="textbox">    	
-		    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		    	<p>Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.</p>
+		    	<p>The next step in your parallax scrolling adventure is to create some sprites!</p>
+		    	<p>I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background <i>and</i> the window, and it's this effect that's used so well on Nike Better World and other parallax sites..</p>
+		    	<p>Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.</p>
 		    </div>
     	</article>
 	</section>	
@@ -72,7 +74,7 @@
 
 	<!-- Section #5 -->
 	<section id="theend" class="story" data-speed="8" data-type="background" data-offsetY="250">    	
-		<div class="sprite5" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div>		
+		<div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div>	
 	</section>
   </div> <!--! end of #main -->
 

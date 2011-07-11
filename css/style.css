@@ -27,24 +27,24 @@
 
 /* Background Only */
 #second { padding: 50px 0;}
-#second article { background: url(../images/grain.png) repeat #333; color: #fff; width: 445px; height: 700px; margin-left: 100px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
-#second article h2 { width: 445px; height: 69px; text-indent: -9999px; background: url(../images/background-only.png); margin: 50px 0 25px 0;}
+#second article { background: url(../images/grain.png) repeat #333; color: #fff; width: 445px; margin-left: 100px; padding: 10px 20px; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
+#second article h2 { width: 445px; height: 69px; text-indent: -9999px; background: url(../images/background-only.png); margin: 25px 0;}
 #second article p { margin-bottom: 25px; }
 #second article a { color: #ff0;}
 
 /* Photograph */
-#third article {  margin: 100px 0 0 60%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; }
-#third .sprite3 { background: url(../images/photo.png) transparent 40% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
-#third article h2 {  padding: 50px 0 25px 0; }
+#third article {  background: url(../images/grain.png) repeat #333; color: #fff; padding: 10px 20px; margin: 100px 0 0 60%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; box-shadow: 0 0 25px rgba(0,0,0,0.3); border: 1px solid rgba(150,150,150,0.1); }
+#third .photograph { background: url(../images/photo.png) transparent 40% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#third article h2 {  padding: 10px 0; }
 #third article p { width: 300px; margin-bottom: 25px; }
 
 /* HTML5 Video */
 #fourth article {  margin-left: 10%; text-shadow: 0 -1px 0 rgba(0,0,0,0.5); line-height: 1.5em; color: #fff; position: absolute; top: 0; }
 #fourth article h2 { width: 661px; height: 66px; text-indent: -9999px; background: url(../images/scroll-a-video.png) center bottom no-repeat; padding: 50px 0 25px 0; }
-#fourth article p { width: 300px; margin-bottom: 25px; }
+#fourth article p { width: 300px; margin: 50px 0; }
 #fourth video { position: fixed; left: 50%; box-shadow: 0 0 25px rgba(0,0,0,0.7); z-index: 1;}
 
 /* The End */
-#theend .sprite5 { background: url(../images/theend.png) 40% 100px no-repeat fixed; height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
+#theend .byebye { background: url(../images/theend.png) 40% 100px no-repeat fixed; height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
 
 
