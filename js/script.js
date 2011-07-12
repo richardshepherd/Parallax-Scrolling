@@ -1,12 +1,12 @@
-/* Parallax Scrolling Tutorial
-   For Smashing Magazine
-   July 2011
-   
-   Author: Richard Shepherd
-   		   www.richardshepherd.com
-   		   @richardshepherd
-   
-*/
+/**
+ * Parallax Scrolling Tutorial
+ * For Smashing Magazine
+ * July 2011
+ *   
+ * Author: Richard Shepherd
+ * 		   www.richardshepherd.com
+ * 		   @richardshepherd   
+ */
 
 // On your marks, get set...
 $(document).ready(function(){
@@ -30,7 +30,8 @@ $(document).ready(function(){
 			offsetCoords = $self.offset(),
 			topOffset = offsetCoords.top;
 		
-	    $(window).scroll(function(){
+		// When the window is scrolled...
+	    $(window).scroll(function() {
 	
 			// If this section is in view
 			if ( ($window.scrollTop() + $window.height()) > (topOffset) &&
@@ -55,7 +56,7 @@ $(document).ready(function(){
 				$('[data-type="sprite"]', $self).each(function() {
 					
 					// Cache the sprite
-					$sprite = $(this);
+					var $sprite = $(this);
 					
 					// Use the same calculation to work out how far to scroll the sprite
 					var yPos = -($window.scrollTop() / $sprite.data('speed'));					
@@ -68,10 +69,11 @@ $(document).ready(function(){
 				// Check for any Videos that need scrolling
 				$('[data-type="video"]', $self).each(function() {
 					
-					// Cache the sprite
-					$video = $(this);
+					// Cache the video
+					var $video = $(this);
 					
-					// Use the same calculation to work out how far to scroll the sprite
+					// There's some repetition going on here, so 
+					// feel free to tidy this section up. 
 					var yPos = -($window.scrollTop() / $video.data('speed'));					
 					var coords = (yPos + $video.data('offsetY')) + 'px';
 	
