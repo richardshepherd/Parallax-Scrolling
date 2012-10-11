@@ -10,75 +10,86 @@
 var Parallax = {  
 	$window:{},
   
+	init: function() {	
+		$('[data-type]').each(function(){
+				Parallax.cacheData(this);
+			} 
+		);
+	},
+	
 	cacheData : function(element) {	
+		// Cache the Y offset, Xposition and the speed of each Element of data-type
 		$(element).data('offsetY', parseInt($(element).attr('data-offsetY')));
 		$(element).data('Xposition', $(element).attr('data-Xposition'));
 		$(element).data('speed', $(element).attr('data-speed'));
 	},
 
-	init: function(element){
+	activateEffect: function(element){
 	
 		// Cache the Window object
 		this.$window = $(window);
 
-		// Store some variables based on where we are
-		var offsetCoords = element.offset();
-		var topOffset = offsetCoords.top;
-		
 		// When the window is scrolled...
 	   	 $(window).scroll(function() {
 	
 			// If this section is in view
-			if ( (Parallax.$window.scrollTop() + Parallax.$window.height()) > (topOffset) &&
-				 ( (topOffset + element.height()) > Parallax.$window.scrollTop() ) ) {
+			if ( Parallax.elementIsVisible(element) ) {
 	
 				// Scroll the background at var speed
-				// the yPos is a negative value because we're scrolling it UP!								
-				var yPos = -(Parallax.$window.scrollTop() / element.data('speed')); 
-				
-				// If this element has a Y offset then add it on
-				if (element.data('offsetY')) {
-					yPos += element.data('offsetY');
-				}
-				
-				// Put together our final background position
-				var coords = '50% '+ yPos + 'px';
-
-				// Move the background
-				element.css({ backgroundPosition: coords });
+				Parallax.scrollBackgroundAtSpeed(element);
 				
 				// Check for other sprites in this section	
-				Parallax.initSprites(element);
+				Parallax.initSubSpritesOfElement(element);
 			
 				// Check for any Videos that need scrolling
-				Parallax.initVideos(element);
+				Parallax.initSubVideosOfElement(element);
 			
 			}; // in view
 	
 		}); // window scroll
 			
 	},
-	
-	initSprites : function(element) {
+
+	elementIsVisible: function(element) {
+		return (Parallax.$window.scrollTop() + Parallax.$window.height()) > (element.offset().top) && ( (element.offset().top + element.height()) > Parallax.$window.scrollTop() ) ;
+	},
+
+	scrollBackgroundAtSpeed :  function(element) {
+		// the yPos is a negative value because we're scrolling it UP!								
+		var yPos = -(Parallax.$window.scrollTop() / element.data('speed')); 
+		
+		// If this element has a Y offset then add it on
+		if (element.data('offsetY')) {
+			yPos += element.data('offsetY');
+		}
+		
+		// Put together our final background position
+		var coords = '50% '+ yPos + 'px';
+
+		// Move the background
+		element.css({ backgroundPosition: coords });
+	},
+
+	initSubSpritesOfElement : function(element) {
 		$('[data-type="sprite"]', element).each(function() {
 			
 			// Cache the sprite
-			var $sprite = $(this);
+			var sprite = $(this);
 			
-			Parallax.sprite($sprite);											
+			Parallax.sprite(sprite);											
 			
 		}); // sprites
 	},
-	sprite : function($sprite) {
+	sprite : function(sprite) {
 					
 		// Use the same calculation to work out how far to scroll the sprite
-		var yPos = -(Parallax.$window.scrollTop() / $sprite.data('speed'));					
-		var coords = $sprite.data('Xposition') + ' ' + (yPos + $sprite.data('offsetY')) + 'px';
+		var yPos = -(Parallax.$window.scrollTop() / sprite.data('speed'));					
+		var coords = sprite.data('Xposition') + ' ' + (yPos + sprite.data('offsetY')) + 'px';
 		
-		$sprite.css({ backgroundPosition: coords });													
+		sprite.css({ backgroundPosition: coords });													
 		
 	},
-	initVideos : function(element) {
+	initSubVideosOfElement : function(element) {
 		$('[data-type="video"]', element).each(function() {
 			
 			// Cache the sprite
@@ -99,22 +110,20 @@ var Parallax = {
 		
 	}
 
-
 }  
+
 // On your marks, get set...
 $(document).ready(function(){
 						
 	
-	// Cache the Y offset and the speed of each sprite
-	$('[data-type]').each(function(){
-			Parallax.cacheData(this);
-		} 
-	);
+	//Init Parallax effect
+	Parallax.init();
 	
 	// For each element that has a data-type attribute with background
+	// actrivate Parallax Effect
 	$('section[data-type="background"]').each(function(){
 			var element = $(this);
-			Parallax.init(element);
-	});	// each data-type
+			Parallax.activateEffect(element);
+	});
 
-}); // document ready
+}); 
