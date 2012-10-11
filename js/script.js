@@ -17,6 +17,7 @@ var Parallax = {
 		// Cache the Window object
 		this.cache.window = $(window);
 
+		// Cache the Parallax-Data
 		$('[data-parallax-type]').each(function(){
 				Parallax.cacheParallaxData(this);
 			} 
@@ -67,7 +68,7 @@ var Parallax = {
 	},
 
 	scrollChildElements: function(element) {
-		// Check for other sprites in this elment and scroll them	
+		// Check for other sprites in this element and scroll them	
 		Parallax.scrollSprites(element);
 	
 		// Check for any Videos that need scrolling and scroll them
@@ -117,8 +118,7 @@ $(document).ready(function(){
 	//Init Parallax effect
 	Parallax.init();
 	
-	// For each element that has a data-parallax-type attribute with background
-	// actrivate Parallax Effect
+	// For each element that has a data-parallax-type attribute with background acrivate Parallax Effect
 	$('section[data-parallax-type="background"]').each(function(){
 			var element = $(this);
 			Parallax.activateEffect(element);
