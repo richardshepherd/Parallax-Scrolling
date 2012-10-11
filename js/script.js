@@ -9,17 +9,20 @@
  */
 var Parallax = {  
 	cache: {
-		window:{}
+		window:null
 	},
   
 	init: function() {	
+		// Cache the Window object
+		this.cache.window = $(window);
+
 		$('[data-parallax-type]').each(function(){
-				Parallax.cacheData(this);
+				Parallax.cacheParallaxData(this);
 			} 
 		);
 	},
 	
-	cacheData : function(element) {	
+	cacheParallaxData : function(element) {	
 		// Cache the Y offset, Xposition and the speed of each Element of data-parallax-type
 		$(element).data('offsetY', parseInt($(element).attr('data-parallax-offsetY')));
 		$(element).data('Xposition', $(element).attr('data-parallax-Xposition'));
@@ -28,31 +31,21 @@ var Parallax = {
 
 	activateEffect: function(element){
 	
-		// Cache the Window object
-		this.cache.window = $(window);
-
 		// When the window is scrolled...
 	   	 $(window).scroll(function() {
 	
-			// If this section is in view
-			if ( Parallax.elementIsVisible(element) ) {
+			if ( Parallax.elementIsInView(element) ) {
 	
-				// Scroll the background at var speed
 				Parallax.scrollBackgroundAtSpeed(element);
-				
-				// Check for other sprites in this section	
-				Parallax.initSubSpritesOfElement(element);
-			
-				// Check for any Videos that need scrolling
-				Parallax.initSubVideosOfElement(element);
-			
-			}; // in view
+				Parallax.scrollChildElements(element);
+							
+			}; 
 	
-		}); // window scroll
+		}); 
 			
 	},
 
-	elementIsVisible: function(element) {
+	elementIsInView: function(element) {
 		return (Parallax.cache.window.scrollTop() + Parallax.cache.window.height()) > (element.offset().top) && ( (element.offset().top + element.height()) > Parallax.cache.window.scrollTop() ) ;
 	},
 
@@ -72,17 +65,21 @@ var Parallax = {
 		element.css({ backgroundPosition: coords });
 	},
 
-	initSubSpritesOfElement : function(element) {
-		$('[data-parallax-type="sprite"]', element).each(function() {
-			
-			// Cache the sprite
-			var sprite = $(this);
-			
-			Parallax.sprite(sprite);											
-			
-		}); // sprites
+	scrollChildElements: function(element) {
+		// Check for other sprites in this elment and scroll them	
+		Parallax.scrollSprites(element);
+	
+		// Check for any Videos that need scrolling and scroll them
+		Parallax.scrollVideos(element);
 	},
-	sprite : function(sprite) {
+
+	scrollSprites : function(element) {
+		$('[data-parallax-type="sprite"]', element).each(function() {
+			Parallax.updatePositionOfSprite($(this));											
+			
+		}); 
+	},
+	updatePositionOfSprite : function(sprite) {
 					
 		// Use the same calculation to work out how far to scroll the sprite
 		var yPos = -(Parallax.cache.window.scrollTop() / sprite.data('speed'));					
@@ -91,17 +88,13 @@ var Parallax = {
 		sprite.css({ backgroundPosition: coords });													
 		
 	},
-	initSubVideosOfElement : function(element) {
+	scrollVideos : function(element) {
 		$('[data-parallax-type="video"]', element).each(function() {
-			
-			// Cache the sprite
-			var $video = $(this);
-			
-			Parallax.video($video);											
+			Parallax.updatePositionOfVideo( $(this));											
 			
 		}); // sprites
 	},
-	video : function($video) {
+	updatePositionOfVideo : function($video) {
 					
 		// There's some repetition going on here, so 
 		// feel free to tidy this section up. 
@@ -127,5 +120,7 @@ $(document).ready(function(){
 			var element = $(this);
 			Parallax.activateEffect(element);
 	});
+
+
 
 }); 
