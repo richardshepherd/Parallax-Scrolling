@@ -8,6 +8,7 @@
  * 		   @richardshepherd   
  */
 var Parallax = {  
+
 	cache: {
 		window:null
 	},
@@ -79,6 +80,7 @@ var Parallax = {
 			
 		}); 
 	},
+
 	updatePositionOfSprite : function(sprite) {
 					
 		// Use the same calculation to work out how far to scroll the sprite
@@ -88,12 +90,14 @@ var Parallax = {
 		sprite.css({ backgroundPosition: coords });													
 		
 	},
+
 	scrollVideos : function(element) {
 		$('[data-parallax-type="video"]', element).each(function() {
 			Parallax.updatePositionOfVideo( $(this));											
 			
 		}); // sprites
 	},
+
 	updatePositionOfVideo : function($video) {
 					
 		// There's some repetition going on here, so 
@@ -110,7 +114,6 @@ var Parallax = {
 // On your marks, get set...
 $(document).ready(function(){
 						
-	
 	//Init Parallax effect
 	Parallax.init();
 	
@@ -120,7 +123,4 @@ $(document).ready(function(){
 			var element = $(this);
 			Parallax.activateEffect(element);
 	});
-
-
-
 }); 
