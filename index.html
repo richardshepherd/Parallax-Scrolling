@@ -19,8 +19,8 @@
   <div id="main" role="main">
 
 	<!-- Section #1 / Intro -->
-	<section id="first" class="story" data-speed="8" data-type="background">    	
-		<div class="smashinglogo" data-type="sprite" data-offsetY="100" data-Xposition="50%" data-speed="-2"></div>		
+	<section id="first" class="story" data-parallax-speed="8" data-parallax-type="background">    	
+		<div class="smashinglogo" data-parallax-type="sprite" data-parallax-offsetY="100" data-parallax-Xposition="50%" data-parallax-speed="-2"></div>		
 		<article>
 
 			<img src="images/tutorial-title.png" alt="tutorial-title" width="711" height="242" />
@@ -30,7 +30,7 @@
 	</section>
 
 	<!-- Section #2 / Background Only -->
-	<section id="second" class="story" data-speed="4" data-type="background">
+	<section id="second" class="story" data-parallax-speed="4" data-parallax-type="background">
 		<article>
 			<h2>Background Only</h2>
 		    	<p>In this section we are sliding the background at a different speed to the rest of the page.</p>
@@ -42,8 +42,8 @@
 	</section>
 	
 	<!-- Section #3 / Photos -->
-	<section id="third" class="story" data-speed="6" data-type="background" data-offsetY="250">    	
-		<div class="photograph" data-type="sprite" data-offsetY="1250" data-Xposition="25%" data-speed="2"></div>
+	<section id="third" class="story" data-parallax-speed="6" data-parallax-type="background" data-parallax-offsetY="250">    	
+		<div class="photograph" data-parallax-type="sprite" data-parallax-offsetY="1250" data-parallax-Xposition="25%" data-parallax-speed="2"></div>
     	<article>
     		<h2>Scrolling Sprites</h2>
 	    	<div class="textbox">    	
@@ -56,7 +56,7 @@
 	
 
 	<!-- Section #4 / HTML5 Video -->
-	<section id="fourth" class="story" data-speed="8" data-type="background" data-offsetY="250">
+	<section id="fourth" class="story" data-parallax-speed="8" data-parallax-type="background" data-parallax-offsetY="250">
     	<article>
     		<h2>HTML5 Video</h2>
 	    	<div class="textbox">    	
@@ -65,7 +65,7 @@
 		    	<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.</p>
 		    </div>
     	</article>
-		<video controls width="640" width="480" data-type="video" data-offsetY="2400" data-speed="1.5">
+		<video controls width="640" width="480" data-parallax-type="video" data-parallax-offsetY="2400" data-parallax-speed="1.5">
 			<source src="video/parallelparking.theora.ogv" type="video/ogg" />
 			<source src="video/parallelparking.mp4" type="video/mp4" />
 			<source src="video/parallelparking.webm" type="video/webm" />
@@ -73,9 +73,11 @@
 	</section>	
 
 	<!-- Section #5 / The End-->
-	<section id="theend" class="story" data-speed="8" data-type="background" data-offsetY="250">    	
-		<div class="byebye" data-type="sprite" data-offsetY="-1600" data-Xposition="50%" data-speed="-2"></div>	
+	<section id="theend" class="story" data-parallax-speed="8" data-parallax-type="background" data-parallax-offsetY="250">    	
+		<div class="byebye" data-parallax-type="sprite" data-parallax-offsetY="-1600" data-parallax-Xposition="50%" data-parallax-speed="-2"></div>	
 	</section>
+
+	
 	
   </div> <!-- // End of #main -->
 
@@ -83,6 +85,7 @@
 
   <!-- Our Javascript, starting with jQuery -->
   <script src='js/libs/jquery-1.6.1.min.js'></script>
+  <script src='js/libs/class.js'></script>
   <script src="js/script.js"></script>
   <!--[if lt IE 7 ]>
     <script src="js/libs/dd_belatedpng.js"></script>

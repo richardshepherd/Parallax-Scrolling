@@ -18,6 +18,7 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
 #fourth { background: url(../images/slide3.jpg) 50% 0 no-repeat fixed; }
 #third { background: url(../images/slide4.jpg) 50% 0 no-repeat fixed; }
 #theend { background: url(../images/puckered.png) 50% bottom no-repeat fixed; }
+#afterend { background: url(../images/slide4.jpg) 50% 0 no-repeat fixed; }
 
 /* Introduction */
 #first .smashinglogo { background: url(../images/smashing-logo.png) 50% 100px no-repeat fixed; min-height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
@@ -45,5 +46,4 @@ article h2 { font-family: 'Lobster Two'; font-size: 60px; margin: 25px 0; line-h
 
 /* The End */
 #theend .byebye { background: url(../images/theend.png) 40% 100px no-repeat fixed; height: 1000px; padding: 0; margin: 0; width: 100%; max-width: 1920px; position: relative; margin: 0 auto; }
-
 
